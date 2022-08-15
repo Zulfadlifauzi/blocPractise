@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const Text(
               'This is where the counter value should be displayed',
             ),
-            BlocBuilder<CubitIncrementDecrement, CubitState>(
+            BlocBuilder<CounterCubit, CubitState>(
               builder: (context, state) {
                 if (state.counterValue < 0) {
                   return Text(
@@ -119,19 +119,23 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 24,
             ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/second');
-              },
-              child: Text('Go to Second Screen'),
-              color: widget.colors,
+            Builder(
+              builder: (materialButtonContext) => MaterialButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/second');
+                },
+                child: Text('Go to Second Screen'),
+                color: widget.colors,
+              ),
             ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/third');
-              },
-              child: Text('Go to Third Screen'),
-              color: widget.colors,
+            Builder(
+              builder: (materialButtonContext) => MaterialButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/third');
+                },
+                child: Text('Go to Third Screen'),
+                color: widget.colors,
+              ),
             ),
           ],
         ),

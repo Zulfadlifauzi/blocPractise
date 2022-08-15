@@ -31,7 +31,7 @@ class _SecondScreenState extends State<SecondScreen> {
             const Text(
               'This is where the counter value should be displayed',
             ),
-            BlocBuilder<CubitIncrementDecrement, CubitState>(
+            BlocBuilder<CounterCubit, CubitState>(
               builder: (context, state) {
                 if (state.counterValue < 0) {
                   return Text(
@@ -65,8 +65,7 @@ class _SecondScreenState extends State<SecondScreen> {
                 FloatingActionButton(
                   heroTag: Text('${widget.title}#3'),
                   onPressed: () {
-                    BlocProvider.of<CubitIncrementDecrement>(context)
-                        .decrement();
+                    BlocProvider.of<CounterCubit>(context).decrement();
                   },
                   tooltip: 'Decrement',
                   child: Icon(Icons.remove),
@@ -74,8 +73,7 @@ class _SecondScreenState extends State<SecondScreen> {
                 FloatingActionButton(
                   heroTag: Text('${widget.title}#4'),
                   onPressed: () {
-                    BlocProvider.of<CubitIncrementDecrement>(context)
-                        .increment();
+                    BlocProvider.of<CounterCubit>(context).increment();
                   },
                   tooltip: 'Increment',
                   child: Icon(Icons.add_outlined),

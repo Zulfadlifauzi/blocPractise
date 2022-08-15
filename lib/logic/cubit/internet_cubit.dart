@@ -40,5 +40,7 @@ class InternetCubit extends Cubit<InternetState> {
     return super.close();
   }
 
-  StreamSubscription? listen(Null Function(dynamic internetState) param0) {}
+  StreamSubscription? listen(Null Function(dynamic internetState) param0) {
+    return null;
+  }
 }
